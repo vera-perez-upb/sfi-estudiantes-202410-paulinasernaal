@@ -150,7 +150,6 @@ void loop() {
             break;
         }
     }
-
 }
 void task2(){
     enum class Task2States{
@@ -181,7 +180,6 @@ void task2(){
             break;
         }
     }
-
 }
 void task3(){
     enum class Task3States{
@@ -212,7 +210,6 @@ void task3(){
             break;
         }
     }
-
 }
 
 void setup()
