@@ -126,11 +126,9 @@ void loop() {
         INIT,
         WAIT_FOR_TIMEOUT
     };
-
     static Task1States task1State = Task1States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 1000;
-
     switch(task1State){
         case Task1States::INIT:{
             Serial.begin(115200);
@@ -138,7 +136,6 @@ void loop() {
             task1State = Task1States::WAIT_FOR_TIMEOUT;
             break;
         }
-
         case Task1States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
@@ -160,11 +157,9 @@ void task2(){
         INIT,
         WAIT_FOR_TIMEOUT
     };
-
     static Task2States task2State = Task2States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 2000;
-
     switch(task2State){
         case Task2States::INIT:{
             Serial.begin(115200);
@@ -172,7 +167,6 @@ void task2(){
             task2State = Task2States::WAIT_FOR_TIMEOUT;
             break;
         }
-
         case Task2States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
@@ -194,11 +188,9 @@ void task3(){
         INIT,
         WAIT_FOR_TIMEOUT
     };
-
     static Task3States task3State = Task3States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 4000;
-
     switch(task3State){
         case Task3States::INIT:{
             Serial.begin(115200);
@@ -206,7 +198,6 @@ void task3(){
             task3State = Task3States::WAIT_FOR_TIMEOUT;
             break;
         }
-
         case Task3States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
