@@ -119,16 +119,18 @@ void loop() {
   lastTime = currentTime;
                 Serial.print("3 segundos\n");
                 taskState = TaskStates::WAIT_1_SECOND;
-  ### Actividad 9:
-  ```
+### Actividad 9:
+```
   void task1(){
     enum class Task1States{
         INIT,
         WAIT_FOR_TIMEOUT
     };
+
     static Task1States task1State = Task1States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 1000;
+
     switch(task1State){
         case Task1States::INIT:{
             Serial.begin(115200);
@@ -136,6 +138,7 @@ void loop() {
             task1State = Task1States::WAIT_FOR_TIMEOUT;
             break;
         }
+
         case Task1States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
@@ -150,15 +153,18 @@ void loop() {
             break;
         }
     }
+
 }
 void task2(){
     enum class Task2States{
         INIT,
         WAIT_FOR_TIMEOUT
     };
+
     static Task2States task2State = Task2States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 2000;
+
     switch(task2State){
         case Task2States::INIT:{
             Serial.begin(115200);
@@ -166,6 +172,7 @@ void task2(){
             task2State = Task2States::WAIT_FOR_TIMEOUT;
             break;
         }
+
         case Task2States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
@@ -180,15 +187,18 @@ void task2(){
             break;
         }
     }
+
 }
 void task3(){
     enum class Task3States{
         INIT,
         WAIT_FOR_TIMEOUT
     };
+
     static Task3States task3State = Task3States::INIT;
     static uint32_t lastTime;
     static constexpr uint32_t INTERVAL = 4000;
+
     switch(task3State){
         case Task3States::INIT:{
             Serial.begin(115200);
@@ -196,6 +206,7 @@ void task3(){
             task3State = Task3States::WAIT_FOR_TIMEOUT;
             break;
         }
+
         case Task3States::WAIT_FOR_TIMEOUT:{
             // evento 1:            
             uint32_t currentTime = millis();
@@ -210,6 +221,7 @@ void task3(){
             break;
         }
     }
+
 }
 
 void setup()
@@ -225,4 +237,6 @@ void loop()
     task2();
     task3();
 }
+  
 ```
+### Actividad 10:
