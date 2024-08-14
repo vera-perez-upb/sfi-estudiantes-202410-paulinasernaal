@@ -239,4 +239,82 @@ void loop()
 }
   
 ```
-### Actividad 10:
+### Actividad 11:
+1. Analiza el programa. ¿Por qué enviaste la letra con el botón send? ¿Qué evento verifica si ha llegado algo por el puerto serial?
+   Enviamos la letra con el botón Send porque es el comando que envia información a la tarjeta. El evento que verifica si ha llegado es if serial.available. 
+2. [Abre](https://www.asciitable.com/) esta tabla.
+   ...
+3. Analiza los números que se ven debajo de las letras. Nota que luego de la r, abajo, hay un número. ¿Qué es ese número?
+   Son diferentes lenguajes de datos
+   
+4. ¿Qué relación encuentras entre las letras y los números?
+   Para copiar de forma normal algun caracter hay que colocarlo como otro formato, por ejemplo, hexadecimal.
+   
+5. ¿Qué es el 0a al final del mensaje y para qué crees que sirva?
+   Es información en lenguaje hexadecimal y funciona para hacer un salto de linea.
+   
+6. Nota que luego de verificar si hay datos en el puerto serial se DEBE HACER UNA LECTURA del puerto. Esto se hace para retirar del puerto el dato que llegó. Si esto no se hace entonces parecerá que siempre tiene un datos disponible en el serial para leer. ¿Tiene sentido esto? Si no es así habla con el profe.
+
+### Actividad 12: 
+- ¿Cómo se declara un puntero?
+  El puntero se declara por ejemplo: uint32_t *pvar;
+  
+- ¿Cómo se define un puntero? (cómo se inicializa)
+  Se inicializa igualandolo a algo.
+  
+- ¿Cómo se obtiene la dirección de una variable?
+  Se alamacena igualandolo a &var.
+  
+- ¿Cómo se puede leer el contenido de una variable por medio de un puntero?
+  Es colocar el nombre del puntero con este simbolo *
+  
+- ¿Cómo se puede escribir el contenido de una variable por medio de un puntero?
+  Se puede escribir con el comando Serial.print(*pvar);
+  
+### Actividad 13: 
+    Resultado: Saca un mensaje por cada constante.
+
+### Actividad 14: 
+    ...
+ 
+### Actividad 15: 
+- ¿Por qué es necesario declarar `rxData` static? y si no es static ¿Qué pasa? ESTO ES IMPORTANTE, MUCHO.
+   
+  
+- dataCounter se define static y se inicializa en 0. Cada vez que se ingrese a la función loop dataCounter se inicializa a 0? ¿Por qué es necesario declararlo static?
+  
+- Observa que el nombre del arreglo corresponde a la dirección del primer elemento del arreglo. Por tanto, usar en una expresión el nombre rxData (sin el operador []) equivale a &rxData[0].
+  
+- En la expresión `sum = sum + (pData[i] - 0x30);` observa que puedes usar el puntero pData para indexar cada elemento del arreglo mediante el operador [].
+  
+- Finalmente, la constante `0x30` en `(pData[i] - 0x30)` ¿Por qué es necesaria?
+
+### Actividad 16: 
+- ¿Qué pasa cuando hago un [Serial.available()](https://www.arduino.cc/reference/en/language/functions/communication/serial/available/)?
+  Le estoy preguntando al programa si el puerto serial está disponible. 
+  
+- ¿Qué pasa cuando hago un [Serial.read()](https://www.arduino.cc/reference/en/language/functions/communication/serial/read/)?
+  Lee la información recibida por el puerto serial.
+  
+- ¿Qué pasa cuando hago un Serial.read() y no hay nada en el buffer de recepción?
+  No pasa nada, simplemente no recibe nada y no ejecuta nada.
+  
+- Un patrón común al trabajar con el puerto serial es este:
+  ```
+  **`if**(Serial.available() > 0)
+  {
+    int dataRx = Serial.read()
+  }`
+  ```
+- ¿Cuántos datos lee Serial.read()?
+  Solo lee un byte a la vez de buffer de recepción.
+   
+- ¿Y si quiero leer más de un dato? No olvides que no se pueden leer más datos de los disponibles en el buffer de recepción porque no hay más datos que los que tenga allí.
+  Para leer mas de un dato se tendría que usar un ciclo.
+  
+- ¿Qué pasa si te envían datos por serial y se te olvida llamar Serial.read()?
+  Pueden ocurrir diversos errores, por ejemplo que el programa crashea.
+  
+### Actividad 17: 
+
+### Actividad 18: 
